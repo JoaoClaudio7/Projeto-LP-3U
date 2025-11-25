@@ -1,5 +1,8 @@
 package ProjetoEscola.Model;
 
+import Annotation.InfoAutor;
+
+@InfoAutor(nome = "João Claudio", data = "25/11/2025")
 public class Aluno extends Pessoa implements Comparable<Aluno>{
     private String curso;
     private int matricula;
@@ -10,6 +13,10 @@ public class Aluno extends Pessoa implements Comparable<Aluno>{
         this.matricula = matricula;
     }
     
+    public Aluno(int matricula) {
+        super("", "", "", "");
+        this.matricula = matricula;
+    }
     public String getCurso() {
         return curso;
     }

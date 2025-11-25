@@ -1,6 +1,9 @@
 package ProjetoEscola.Model;
 
-public class Pessoa {
+import Annotation.InfoAutor;
+
+@InfoAutor(nome = "João Claudio", data = "25/11/2025")
+public abstract class Pessoa {
     private String nome;
     private String cpf;
     private String telefone;
@@ -11,8 +14,7 @@ public class Pessoa {
         this.cpf = cpf;
         this.telefone = telefone;
         this.email = email;
-}    
-
+    }    
     public String getNome() {
         return nome;
     }

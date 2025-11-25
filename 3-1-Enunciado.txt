@@ -12,14 +12,14 @@ Coleções genéricas (ArrayList / HashMap) quando fizer sentido.
 
 Requisitos obrigatórios
 
-Domínio com classe base + 2 subclasses (polimorfismo ativo).
-Interfaces (ex.: Repositorio<T>, Ordenacao<T>, Arvore<K,V>).
-Classe genérica (ex.: RepositorioHash<T> com Function<T,String> para ID).
-Exceções: NegocioException (regra de negócio) + try/catch no Main com mensagens claras.
-Annotation @InfoAutor (nome, data) aplicada em ≥2 classes; ler via reflexão e imprimir.
-Árvore (ABB/AVL): inserir, buscar, travessia em-ordem (retornar valores ordenados pela chave).
-Ordenação (Merge/Heap): ordenar lista por Comparator.
-Demonstração no Main: adicionar, listar, buscar, remover, imprimir em ordem (árvore) e ordenado (algoritmo).
+Domínio com classe base + 2 subclasses (polimorfismo ativo). ok
+Interfaces (ex.: Repositorio<T>, Ordenacao<T>, Arvore<K,V>). ok
+Classe genérica (ex.: RepositorioHash<T> com Function<T,String> para ID). ok (em observação)
+Exceções: NegocioException (regra de negócio) + try/catch no Main com mensagens claras. ok 
+Annotation @InfoAutor (nome, data) aplicada em ≥2 classes; ler via reflexão e imprimir. ok
+Árvore (ABB/AVL): inserir, buscar, travessia em-ordem (retornar valores ordenados pela chave). ok
+Ordenação (Merge/Heap): ordenar lista por Comparator. Não tem
+Demonstração no Main: adicionar, listar, buscar, remover, imprimir em ordem (árvore) e ordenado (algoritmo). ok (Ajustes)
 
 Entregáveis
 
