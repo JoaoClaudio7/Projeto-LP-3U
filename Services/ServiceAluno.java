@@ -9,7 +9,7 @@ import ProjetoEscola.Model.Pessoa;
 import Interface.Service;
 
 import java.util.List;
-public class ServiceAluno implements Service<Integer> {
+public class ServiceAluno implements Service<Aluno> {
     ArvoreAVL<Aluno> arvoreAVL = new ArvoreAVL<>();
 
     @Override
@@ -32,14 +32,20 @@ public class ServiceAluno implements Service<Integer> {
     }
 
     @Override
-    public void remover(int matricula) {
+    public void remover(int matricula) throws NaoEncontradoException {
         // Criar um objeto Aluno "dummy" para remover
         Aluno dummy = new Aluno("", "", "", "", "", matricula);
+        Aluno alunoExistente = arvoreAVL.buscar(dummy);
+        if (alunoExistente == null) {
+            throw new NaoEncontradoException("Aluno com matricula " + matricula + " nao encontrado.");
+        }
         arvoreAVL.remover(dummy);
     }
 
-    @Override
-    public void imprimirEmOrdem(ArvoreAVL arvoreAVL) {
+    public void imprimirEmOrdem(ArvoreAVL arvoreAVL) throws NaoEncontradoException {
+        if(arvoreAVL == null){
+            throw new NaoEncontradoException("ArvoreAVL vazia");
+        };
         List<Aluno> alunos = arvoreAVL.emOrdem();
         for (Aluno aluno : alunos) {
             System.out.println("Nome: "+aluno.getNome()+" Matricula: "+aluno.getMatricula());
@@ -47,14 +53,17 @@ public class ServiceAluno implements Service<Integer> {
     }
 
     public ArvoreAVL<Aluno> getArvoreAVLCopy() {
+        if(arvoreAVL == null){
+            return null;
+        };
         ArvoreAVL<Aluno> copia = new ArvoreAVL<>();
         for (Aluno aluno : arvoreAVL.emOrdem()) {
             copia.inserir(aluno);
         }
         return copia;
     }
-    @Override
-    public Aluno buscar(Integer matricula) throws NaoEncontradoException  {
+    
+    public Aluno buscar(int matricula) throws NaoEncontradoException  {
         Aluno dummy = new Aluno(matricula);
         Aluno result = arvoreAVL.buscar(dummy);
         if (result != null) {

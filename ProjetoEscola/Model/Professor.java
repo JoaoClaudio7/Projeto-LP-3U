@@ -3,12 +3,12 @@ package ProjetoEscola.Model;
 import Annotation.InfoAutor;
 
 @InfoAutor(nome = "João Claudio", data = "25/11/2025")
-public class Professor extends Pessoa {
+public class Professor extends Pessoa implements Comparable<Professor>{
     private int idProfessor;
     private String disciplina;
     private double salario;
     
-    public Professor(String nome, int idProfessor, String cpf, String telefone, String email, String disciplina, double salario) {
+    public Professor(String nome, String cpf, String telefone, String email,  String disciplina, double salario, int idProfessor) {
         super(nome, cpf, telefone, email);
         this.idProfessor = idProfessor;
         this.disciplina = disciplina;
@@ -37,5 +37,10 @@ public class Professor extends Pessoa {
 
     public void setIdProfessor(int idProfessor) {
         this.idProfessor = idProfessor;
+    }
+
+    @Override
+    public int compareTo(Professor o) {
+        return Integer.compare(this.idProfessor, o.idProfessor);
     }
 }
